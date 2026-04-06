@@ -10,18 +10,19 @@
             padding: 0;
             background-color: #fdfcf0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
+            text-align: center;
         }
 
         /* Anti-gravity Floating Elements */
         .float {
             position: absolute;
-            font-size: 2rem;
+            font-size: 2.5rem; /* Elements ලොකු කළා */
             animation: floatUp 6s infinite ease-in-out;
             opacity: 0.6;
             z-index: 0;
@@ -32,31 +33,33 @@
             100% { transform: translateY(-10vh) rotate(360deg); }
         }
 
-        /* Content Styles */
         #content {
             position: relative;
             z-index: 10;
-            text-align: center;
+            width: 90%; /* Phone screen එකට ගැලපෙන්න */
         }
 
+        /* Font ලොකු කළා */
         h1 {
             color: #ff4757;
-            font-size: 2.5rem;
+            font-size: 3.5rem; /* Phone එකට ලොකු font එකක් */
             margin-bottom: 20px;
             display: none;
             text-shadow: 2px 2px #fff;
+            line-height: 1.2;
         }
 
         #mainBtn {
-            padding: 20px 40px;
-            font-size: 1.5rem;
+            padding: 25px 50px;
+            font-size: 1.8rem; /* Button එක ලොකු කළා */
             background: #00d2d3;
             color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 60px;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
+            font-weight: bold;
         }
 
         #mainBtn:hover { transform: scale(1.1); }
@@ -64,21 +67,22 @@
         #photoContainer {
             display: none;
             margin-top: 20px;
-            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         #photoContainer img {
-            width: 300px;
-            border-radius: 20px;
-            border: 8px solid white;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%; /* Phone එකේ පළලට හරියන්න */
+            max-width: 500px;
+            border-radius: 25px;
+            border: 10px solid white;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
         }
 
-        footer {
-            position: fixed;
-            bottom: 10px;
-            color: #888;
-            font-size: 0.8rem;
+        .funny-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #555;
+            margin-top: 15px;
         }
 
         @keyframes popIn {
@@ -99,14 +103,12 @@
         
         <div id="photoContainer">
             <img src="cathamalli.jpg" alt="Malli">
-            <p style="font-weight: bold; color: #555;">CHILLING / FUNNY POSES / SLEEPYHEAD</p>
+            <p class="funny-text">CHILLING / FUNNY POSES / SLEEPYHEAD</p>
         </div>
 
         <br>
         <button id="mainBtn" onclick="nextStep()">SURPRISE!</button>
     </div>
-
-    <footer>A Creative Antigravity Birthday Hub | System Error: Brother is getting too old.</footer>
 
     <script>
         let step = 0;
@@ -122,7 +124,7 @@
             } else if (step === 2) {
                 wish.style.display = 'none';
                 photo.style.display = 'block';
-                btn.style.display = 'none'; // Button eka disappear wenawa
+                btn.style.display = 'none';
             }
         }
     </script>
