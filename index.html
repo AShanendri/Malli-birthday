@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD Malli! 🎂</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fdfcf0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Anti-gravity Floating Elements */
+        .float {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUp 6s infinite ease-in-out;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); }
+            100% { transform: translateY(-10vh) rotate(360deg); }
+        }
+
+        /* Content Styles */
+        #content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4757;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: none;
+            text-shadow: 2px 2px #fff;
+        }
+
+        #mainBtn {
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            background: #00d2d3;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #mainBtn:hover { transform: scale(1.1); }
+
+        #photoContainer {
+            display: none;
+            margin-top: 20px;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #photoContainer img {
+            width: 300px;
+            border-radius: 20px;
+            border: 8px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="float" style="left: 10%; animation-delay: 0s;">🎈</div>
+    <div class="float" style="left: 30%; animation-delay: 2s;">🎁</div>
+    <div class="float" style="left: 70%; animation-delay: 1s;">🎂</div>
+    <div class="float" style="left: 90%; animation-delay: 4s;">✨</div>
+
+    <div id="content">
+        <h1 id="wishText">HAPPY BIRTHDAY BRO! 🎂🎉</h1>
+        
+        <div id="photoContainer">
+            <img src="image_c608d1.jpg" alt="Malli">
+            <p style="font-weight: bold; color: #555;">CHILLING / FUNNY POSES / SLEEPYHEAD</p>
+        </div>
+
+        <br>
+        <button id="mainBtn" onclick="nextStep()">SURPRISE!</button>
+    </div>
+
+    <footer>A Creative Antigravity Birthday Hub | System Error: Brother is getting too old.</footer>
+
+    <script>
+        let step = 0;
+        function nextStep() {
+            step++;
+            const btn = document.getElementById('mainBtn');
+            const wish = document.getElementById('wishText');
+            const photo = document.getElementById('photoContainer');
+
+            if (step === 1) {
+                wish.style.display = 'block';
+                btn.innerText = 'SEE MY REAL PHOTO?';
+            } else if (step === 2) {
+                wish.style.display = 'none';
+                photo.style.display = 'block';
+                btn.style.display = 'none'; // Button eka disappear wenawa
+            }
+        }
+    </script>
+</body>
+</html>
